@@ -14,7 +14,7 @@ export default function CallWaiterPage() {
   useEffect(() => {
     const callWaiterAndNavigate = async () => {
       try {
-        const test = await callwaiter(user);
+        await callwaiter(user);
         toast.success("Waiter Notified");
         navigate('/');
       }

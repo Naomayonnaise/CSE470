@@ -42,7 +42,7 @@ export default function Login() {
                         message: "Not a Valid ID",
                     },         
             })}
-            error={errors.email}
+            error={errors.employee}
             />
             <Input 
             type="password"

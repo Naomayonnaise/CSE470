@@ -14,7 +14,7 @@ export default function AnswerCallerPage() {
   useEffect(() => {
     const answerCallerAndNavigate = async () => {
       try {
-        const test = await answerCaller(user);
+        await answerCaller(user);
         toast.success("Call Answered");
         navigate('/');
       }

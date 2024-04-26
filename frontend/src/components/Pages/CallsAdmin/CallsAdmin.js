@@ -1,6 +1,6 @@
 import classes from './callsAdmin.module.css';
 import { useEffect, useState } from 'react';
-import { getPendingCallers, answerCaller } from '../../../Services/userService';
+import { getPendingCallers } from '../../../Services/userService';
 import { Link } from 'react-router-dom';
 
 export default function OrdersAdmin() {

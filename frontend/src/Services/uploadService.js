@@ -1,16 +1,21 @@
 import axios from "axios";
 
 export const uploadImage = async event => {
-    const image = await getImage(event);
-    if (!image) return null;
+    try {
+        const image = await getImage(event);
+        if (!image) return null;
 
-    const formData = new FormData();
-    formData.append('image', image, image.name);
-    const response = await axios.post('/api/upload', formData);
-    return response.data.image;
+        const formData = new FormData();
+        formData.append('image', image, image.name);
+        const response = await axios.post('/api/upload', formData);
+        return response.data.image;
+    } catch (error) {
+        console.error(error.message);
+        return null;
+    }
 };
 
-const getImage = async event => {
+export const getImage = async event => {
     const files = event.target.files;
 
     if (!files || files.length <=0) {
@@ -23,6 +28,8 @@ const getImage = async event => {
         return null;
     }
 
-    return file;
+    const blob = new Blob([file], { type: file.type, name: file.name });
+
+    return blob;
 
 }

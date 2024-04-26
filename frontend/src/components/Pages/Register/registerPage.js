@@ -8,7 +8,8 @@ import { useAuth } from '../../../Hooks/useAuth';
 import { useEffect } from 'react';
 
 export default function RegisterPage() {
-  const auth = useAuth();
+
+  const auth = useAuth() ?? {};
   const {user} = auth;
   const navigate = useNavigate();
   const [params] = useSearchParams();
